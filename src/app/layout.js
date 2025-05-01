@@ -1,14 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
+// Import fonts from Google (Next.js 13)
+import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+// Add font imports for Inter and Roboto with valid weights
+const inter = Inter({
+  variable: "--font-inter", // Custom CSS variable for the font
+  subsets: ["latin"], // Load the latin subset
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const roboto = Roboto({
+  variable: "--font-roboto", // Custom CSS variable for the monospaced font
+  subsets: ["latin"], // Latin subset
+  weight: ["400", "700"], // Available weights for Roboto
 });
 
 export const metadata = {
@@ -19,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${inter.variable} ${roboto.variable}`}>
         {children}
       </body>
     </html>
