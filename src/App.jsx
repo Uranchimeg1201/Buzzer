@@ -1,24 +1,19 @@
-"use client";
-import Image from "next/image";
-import styles from "./page.module.css";
-import { backgroundStyle } from "./StyledComponent/StyledComponent";
-
 export default function Home() {
   const img = "/aug1.png";
 
   return (
     <div
       style={{
-        ...backgroundStyle,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         height: "100vh",
+        width: "100vw",
         backgroundColor: "#1e1e1e",
       }}
     >
-      <button
+      <div
         className="buzzer-button"
         onMouseDown={(e) => {
           e.currentTarget.style.transform = "scale(0.90)";
@@ -28,10 +23,10 @@ export default function Home() {
           e.currentTarget.style.transform = "scale(1)";
           e.currentTarget.style.boxShadow = "0 0 25px rgba(255, 75, 43, 0.7)";
         }}
-        // aria-label="Go Button" 
+        // aria-label="Go Button"
       >
         GO !!
-        <Image
+        <img
           src={img}
           alt="Check"
           width={35}
@@ -41,7 +36,7 @@ export default function Home() {
             verticalAlign: "middle",
           }}
         />
-      </button>
+      </div>
 
       <style jsx>{`
         .buzzer-button {
@@ -60,13 +55,13 @@ export default function Home() {
           justify-content: center;
           transition: transform 0.1s ease-in-out, box-shadow 0.2s;
           animation: pulse 1.5s infinite, bounce 5s infinite;
-          outline: 4px solid #ff4b2b; 
+          outline: 4px solid #ff4b2b;
           position: relative;
           overflow: hidden;
         }
 
         .buzzer-button:focus {
-          outline: 4px solid #ff4b2b; 
+          outline: 4px solid #ff4b2b;
         }
 
         .buzzer-button::before {
@@ -117,11 +112,21 @@ export default function Home() {
         }
 
         @keyframes wiggle {
-          0% { transform: rotate(0deg); }
-          25% { transform: rotate(1deg); }
-          50% { transform: rotate(-1deg); }
-          75% { transform: rotate(1deg); }
-          100% { transform: rotate(0deg); }
+          0% {
+            transform: rotate(0deg);
+          }
+          25% {
+            transform: rotate(1deg);
+          }
+          50% {
+            transform: rotate(-1deg);
+          }
+          75% {
+            transform: rotate(1deg);
+          }
+          100% {
+            transform: rotate(0deg);
+          }
         }
 
         @media (max-width: 600px) {
